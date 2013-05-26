@@ -147,7 +147,10 @@
     <Content Include="Assets\Prerequisites.png" />
     <Content Include="Assets\Projection.jpg" />
     <Content Include="Assets\saddle.gif" />
-    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.scale-140.png" />
+    <Content Include="Assets\SmallLogo.scale-180.png" />
+    <Content Include="Assets\SmallLogo.scale-80.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-140.png" />
     <Content Include="Assets\SplashScreen.scale-180.png" />

@@ -19,22 +19,26 @@ namespace MyBlog
             var article = SampleDataSource.GetItem("Group-1-Item-1");
 
 
-            ITileWideImageAndText01 tileContent = TileContentFactory.CreateTileWideImageAndText01();
+
+            var tileContent = TileContentFactory.CreateTileWideImageAndText01();
 
             tileContent.TextCaptionWrap.Text = article.Title;
             tileContent.Image.Src = article.ImagePath;
-            tileContent.Image.Alt = article.Title;
+            tileContent.Image.Alt = article.Subtitle;
 
 
-            
-            ITileSquareImage squareContent = TileContentFactory.CreateTileSquareImage();
+            var squareContent = TileContentFactory.CreateTileSquareImage();
             squareContent.Image.Src = article.ImagePath;
             squareContent.Image.Alt = article.Title;
+
             tileContent.SquareContent = squareContent;
 
 
 
-            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileContent.CreateNotification());
+            TileNotification notification = tileContent.CreateNotification();
+            TileUpdateManager
+                .CreateTileUpdaterForApplication()
+                .Update(notification);
         }
     }
 }
