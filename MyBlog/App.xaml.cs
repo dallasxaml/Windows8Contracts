@@ -84,6 +84,15 @@ namespace MyBlog
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+
+
+
+            await TileManager.UpdateTile();
+
+
+
+
         }
 
         /// <summary>

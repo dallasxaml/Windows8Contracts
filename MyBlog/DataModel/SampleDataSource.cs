@@ -87,6 +87,11 @@ namespace MyBlog.Data
             }
         }
 
+        public string ImagePath
+        {
+            get { return SampleDataCommon._baseUri + this._imagePath; }
+        }
+
         public void SetImage(String path)
         {
             this._image = null;
