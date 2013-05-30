@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.ApplicationModel.DataTransfer;
 
 // The Item Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234232
 
@@ -63,6 +64,29 @@ namespace MyBlog
         {
             var selectedItem = (SampleDataItem)this.flipView.SelectedItem;
             pageState["SelectedItem"] = selectedItem.UniqueId;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var manager = DataTransferManager.GetForCurrentView();
+            manager.DataRequested += manager_DataRequested;
+            base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            var manager = DataTransferManager.GetForCurrentView();
+            manager.DataRequested -= manager_DataRequested;
+            base.OnNavigatedFrom(e);
+        }
+
+        void manager_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
+        {
+            DataRequest request = args.Request;
+            var item = flipView.SelectedItem as SampleDataItem;
+            request.Data.Properties.Title = item.Title;
+            request.Data.Properties.Description = item.Description;
+            request.Data.SetText(item.Content);
         }
     }
 }
