@@ -19,9 +19,6 @@
         <DefaultTile ShowName="allLogos" ShortName="Q.E.D. Code" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#FFCB5B" />
       </VisualElements>
-      <Extensions>
-        <Extension Category="windows.search" />
-      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

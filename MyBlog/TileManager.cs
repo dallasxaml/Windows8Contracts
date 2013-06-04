@@ -20,25 +20,11 @@ namespace MyBlog
 
 
 
-            var tileContent = TileContentFactory.CreateTileWideImageAndText01();
-
-            tileContent.TextCaptionWrap.Text = article.Title;
-            tileContent.Image.Src = article.ImagePath;
-            tileContent.Image.Alt = article.Subtitle;
-
-
-            var squareContent = TileContentFactory.CreateTileSquareImage();
-            squareContent.Image.Src = article.ImagePath;
-            squareContent.Image.Alt = article.Title;
-
-            tileContent.SquareContent = squareContent;
 
 
 
-            TileNotification notification = tileContent.CreateNotification();
-            TileUpdateManager
-                .CreateTileUpdaterForApplication()
-                .Update(notification);
+
+
         }
     }
 }
